@@ -1,0 +1,11 @@
+<div id="divResources">
+    <div *ngIf="mineralFields">
+        <div *ngFor="let mineral of mineralFields" class="divMineralField resourceItem"
+            (click)="mineralClick();"></div>
+    </div>
+    <div *ngIf="vespeneGeysers">
+        <div *ngFor="let geyser of vespeneGeysers" class="{{geyser.CssClass}} resourceItem"
+            (contextmenu)="vespeneRightClick(geyser)"
+            (click)="vespeneClick(geyser);"></div>
+    </div>
+</div>

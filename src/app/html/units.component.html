@@ -1,0 +1,6 @@
+<div class="divUnits">
+    <div *ngIf="units">
+        <div *ngFor="let unit of units" class="{{unit.CssClass}} resourceItem"
+            (click)="UnitClick(unit);"></div>
+    </div>
+</div>

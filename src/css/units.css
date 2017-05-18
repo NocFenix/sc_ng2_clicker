@@ -1,0 +1,15 @@
+.divUnits {
+  margin: 10px 0 0 10px;
+}
+
+.divUnits div {
+  margin-right: 5px;
+  display:inline-block;
+}
+
+.divDrone {
+    width: 75px;
+    height: 73px;
+    background-image: url('../img/drone.png');
+    background-size: contain;
+}

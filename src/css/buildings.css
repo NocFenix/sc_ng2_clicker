@@ -1,0 +1,25 @@
+#divBuildings {
+  margin: 10px 0 0 10px;
+}
+
+#divBuildings div {
+  margin-right: 10px;
+  display:inline-block;
+}
+
+.buildingItem {
+  cursor: pointer;
+}
+
+.divHatchery {
+  width: 300px;
+  height: 279px;
+  background-image: url('../img/hatchery.png');
+  background-size: contain;
+}
+
+.divSpawningPool {
+  width: 200px;
+  height: 175px;
+  background-color: #800080;
+}

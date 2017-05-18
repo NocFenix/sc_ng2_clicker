@@ -1,0 +1,45 @@
+#divResources {
+  margin: 10px 0 0 10px;
+}
+
+#divResources div {
+  margin-right: 5px;
+  display:inline-block;
+}
+
+.resourceItem:hover {
+  cursor: pointer;
+}
+
+.divMineralField {
+  width:100px;
+  height:80px;
+  background-image: url('../img/mineral_field.gif');
+  background-size: contain;
+}
+
+.divVespeneGeyser {
+  width:100px;
+  height:80px;
+  background-image: url('../img/vespene_geyser.gif');
+  background-size: contain;
+}
+
+.divExtractor {
+  width:100px;
+  height:80px;
+  background-image: url('../img/extractor.gif');
+  background-size: contain;
+}
+
+#liMinerals {
+  color: #33FFFC;
+}
+
+#liVespene {
+  color: #20A638;
+}
+
+#liCredits {
+  color: #ffff00;
+}

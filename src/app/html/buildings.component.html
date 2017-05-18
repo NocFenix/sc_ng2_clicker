@@ -1,0 +1,7 @@
+<div id="divBuildings">
+    <div *ngIf="buildings">
+        <div *ngFor="let building of buildings" id="{{building.Id}}" class="{{building.Class}} buildingItem"
+            (contextmenu)="BuildingContextClick(building);"
+            (click)="BuildingClick(building);"></div>
+    </div>
+</div>
