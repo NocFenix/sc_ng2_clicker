@@ -9,4 +9,7 @@ export class BuildingsService {
         return Promise.resolve(BUILDINGS);
     }
     
+    GetBuilding(id: number) {
+        return this.GetBuildings().then(building => building.find(building => building.Id === id));
+    }
 }

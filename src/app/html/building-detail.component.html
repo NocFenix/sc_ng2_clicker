@@ -1,0 +1,11 @@
+<div *ngIf="building" class="divBuildingDetail">
+    <h1>{{building.Name}} <button (click)="close();" class="buttonClose">Hide</button></h1>
+    {{building.Description}}
+    <div *ngFor="let action of building.Actions" class="divBuildingActions">
+        <h3 class="actionTitle">
+            {{action.Name}} <button (click)="ActionClick(action)" class="button">Confirm</button>
+        </h3>
+        Cost: {{action.Cost}}
+        <div [innerHtml]="action.Description"></div>
+    </div>
+</div>

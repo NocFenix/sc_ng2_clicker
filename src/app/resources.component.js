@@ -44,7 +44,7 @@ var ResourceComponent = (function () {
         if (this.units.length > 0) {
             var droneCount = 0;
             for (var i = 0; i < this.units.length; i++) {
-                if (this.units[i].Id == 1) {
+                if (this.units[i].TypeId == 1 && this.units[i].GatherResource == 1) {
                     droneCount++;
                 }
             }

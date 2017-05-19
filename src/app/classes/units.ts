@@ -1,5 +1,6 @@
-export class Unit {
+export interface IUnit {
     Id: number;
+    TypeId: number;
     Name: string;
     CssClass: string;
     MineralCost?: number;
@@ -7,10 +8,26 @@ export class Unit {
     CreditCost?: number;
     TimeToBuild?: number;
     RushCost?: number;
+    GatherResource?: number;
+}
 
-    constructor(id: number, name: string, cssClass: string) {
+export class Drone implements IUnit {
+    Id: number;
+    TypeId: number;
+    Name: string;
+    CssClass: string;
+    MineralCost?: number;
+    VespeneCost?: number;
+    CreditCost?: number;
+    TimeToBuild?: number;
+    RushCost?: number;
+    GatherResource: number;
+
+    constructor (id: number) {
         this.Id = id;
-        this.Name = name;
-        this.CssClass = cssClass;
+        this.TypeId = 1;
+        this.Name = "Drone";
+        this.CssClass = "divDrone";
+        this.GatherResource = 1;
     }
 }

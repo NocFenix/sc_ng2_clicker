@@ -5,4 +5,10 @@ var Building = (function () {
     return Building;
 }());
 exports.Building = Building;
+var BuildingAction = (function () {
+    function BuildingAction() {
+    }
+    return BuildingAction;
+}());
+exports.BuildingAction = BuildingAction;
 //# sourceMappingURL=buildings.js.map

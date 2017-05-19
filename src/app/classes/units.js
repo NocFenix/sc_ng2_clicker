@@ -1,11 +1,13 @@
 "use strict";
-var Unit = (function () {
-    function Unit(id, name, cssClass) {
+var Drone = (function () {
+    function Drone(id) {
         this.Id = id;
-        this.Name = name;
-        this.CssClass = cssClass;
+        this.TypeId = 1;
+        this.Name = "Drone";
+        this.CssClass = "divDrone";
+        this.GatherResource = 1;
     }
-    return Unit;
+    return Drone;
 }());
-exports.Unit = Unit;
+exports.Drone = Drone;
 //# sourceMappingURL=units.js.map

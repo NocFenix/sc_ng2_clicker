@@ -1,0 +1,34 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+body {
+  margin:0;
+  padding:0;
+}
+
+.button {
+  background-color: #36800f;
+  border: none;
+  color: #FFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 4px 2px;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+.buttonClose {
+  background-color: #FF0033;
+  border: none;
+  color: #FFF;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 4px 6px;
+  cursor: pointer;
+  position: relative;
+  top:-10px;
+}

@@ -4,7 +4,7 @@ import { BaseService } from './base.service';
 import { UnitsService } from './units.service';
 import { ResourceService } from './resource.service';
 import { Mineral, Vespene } from './classes/resources';
-import { Unit } from './classes/units';
+import { IUnit, Drone } from './classes/units';
 
 @Component({
   selector: 'resources',
@@ -15,7 +15,7 @@ export class ResourceComponent implements OnInit {
   mineralFields: Mineral[];
   vespeneGeysers: Vespene[];
   base: Base;
-  units: Unit[];
+  units: IUnit[];
 
   constructor(private resourceService: ResourceService, private baseService: BaseService,
     private unitsService: UnitsService) { }
@@ -47,7 +47,7 @@ export class ResourceComponent implements OnInit {
     if(this.units.length > 0){
       var droneCount = 0;
       for (var i = 0; i < this.units.length; i++) {
-        if (this.units[i].Id == 1){
+        if (this.units[i].TypeId == 1 && this.units[i].GatherResource == 1) {
           droneCount++;
         }
       }
@@ -64,7 +64,7 @@ export class ResourceComponent implements OnInit {
   }
 
   vespeneClick(geyser: Vespene) : void {
-    if (geyser.HasBuilding){
+    if (geyser.HasBuilding) {
       this.base.Vespene += 8;
     }
     else {

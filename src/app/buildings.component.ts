@@ -5,7 +5,8 @@ import { BaseService } from './base.service';
 import { BuildingsService } from './buildings.service';
 import { UnitsService } from './units.service';
 import { Mineral, Vespene } from './classes/resources';
-import { Unit } from './classes/units';
+import { IUnit, Drone } from './classes/units';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'my-buildings',
@@ -15,10 +16,10 @@ import { Unit } from './classes/units';
 export class BuildingsComponent implements OnInit {
   base: Base;
   buildings: Building[];
-  units: Unit[];
+  units: IUnit[];
 
   constructor(private buildingsService: BuildingsService, private baseService: BaseService,
-    private unitsService: UnitsService) { }
+    private unitsService: UnitsService, private router: Router) { }
 
   ngOnInit(): void {
     this.GetBase();
@@ -39,20 +40,21 @@ export class BuildingsComponent implements OnInit {
   }
 
   BuildingClick(building: Building) : void {
-    switch (building.Id){
-        case 1:
-            if (confirm("Spawn Drone for 100 Minerals?")){
-                if (this.base.Minerals >= 100) {
-                    this.base.Minerals -= 100;
-                    this.units.push(new Unit(1, "Drone", "divDrone"));
-                    this.UpdateUnits();
-                }
-                else {
-                    alert("Not enough Minerals!");
-                }
-            }
-            break;
-    }
+    this.router.navigate(['/building-detail', building.Id]);
+    // switch (building.Id) {
+    //     case 1:
+    //         if (confirm("Spawn Drone for 100 Minerals?")) {
+    //             if (this.base.Minerals >= 100) {
+    //                 this.base.Minerals -= 100;
+    //                 this.units.push(new Drone(1));
+    //                 this.UpdateUnits();
+    //             }
+    //             else {
+    //                 alert("Not enough Minerals!");
+    //             }
+    //         }
+    //         break;
+    // }
   }
 
   UpdateUnits() : void {

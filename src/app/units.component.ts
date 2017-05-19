@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Base } from './classes/base';
-import { Unit } from './classes/units';
+import { IUnit, Drone } from './classes/units';
 import { BaseService } from './base.service';
 import { UnitsService } from './units.service';
 
@@ -11,7 +11,7 @@ import { UnitsService } from './units.service';
 })
 export class UnitsComponent implements OnInit {
   base: Base;
-  units: Unit[];
+  units: IUnit[];
 
   constructor(private unitsService: UnitsService, private baseService: BaseService) { }
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class UnitsComponent implements OnInit {
       this.unitsService.GetUnits().then(unit => this.units = unit);
   }
 
-  UnitClick(unit: Unit) : void {
+  UnitClick(unit: IUnit) : void {
     
   }
 }

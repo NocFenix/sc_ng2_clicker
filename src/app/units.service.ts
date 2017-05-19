@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Unit } from './classes/units';
-import { Mineral, Vespene } from './classes/resources';
+import { IUnit } from './classes/units';
 import { UNITS } from './mock-base';
 
 @Injectable()
 export class UnitsService {
-    GetUnits(): Promise<Unit[]> {
+    GetUnits(): Promise<IUnit[]> {
         return Promise.resolve(UNITS);
     }
 }

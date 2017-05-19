@@ -1,6 +1,7 @@
 export class Building {
     Id: number;
     Name: string;
+    Description: string;
     MineralCost: number;
     VespeneCost: number;
     CreditCost: number;
@@ -8,4 +9,12 @@ export class Building {
     RushCost: number;
     ClickEvent: string;
     Class: string;
+    Actions: BuildingAction[];
+}
+
+export class BuildingAction {
+    Name: string;
+    Description: string;
+    Cost: string;
+    ClickEvent: string;
 }

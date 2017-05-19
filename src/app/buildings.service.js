@@ -13,6 +13,9 @@ var BuildingsService = (function () {
     BuildingsService.prototype.GetBuildings = function () {
         return Promise.resolve(mock_base_1.BUILDINGS);
     };
+    BuildingsService.prototype.GetBuilding = function (id) {
+        return this.GetBuildings().then(function (building) { return building.find(function (building) { return building.Id === id; }); });
+    };
     return BuildingsService;
 }());
 BuildingsService = __decorate([

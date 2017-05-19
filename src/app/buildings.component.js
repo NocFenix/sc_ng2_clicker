@@ -12,12 +12,13 @@ var core_1 = require("@angular/core");
 var base_service_1 = require("./base.service");
 var buildings_service_1 = require("./buildings.service");
 var units_service_1 = require("./units.service");
-var units_1 = require("./classes/units");
+var router_1 = require("@angular/router");
 var BuildingsComponent = (function () {
-    function BuildingsComponent(buildingsService, baseService, unitsService) {
+    function BuildingsComponent(buildingsService, baseService, unitsService, router) {
         this.buildingsService = buildingsService;
         this.baseService = baseService;
         this.unitsService = unitsService;
+        this.router = router;
     }
     BuildingsComponent.prototype.ngOnInit = function () {
         this.GetBase();
@@ -37,20 +38,21 @@ var BuildingsComponent = (function () {
         this.unitsService.GetUnits().then(function (unit) { return _this.units = unit; });
     };
     BuildingsComponent.prototype.BuildingClick = function (building) {
-        switch (building.Id) {
-            case 1:
-                if (confirm("Spawn Drone for 100 Minerals?")) {
-                    if (this.base.Minerals >= 100) {
-                        this.base.Minerals -= 100;
-                        this.units.push(new units_1.Unit(1, "Drone", "divDrone"));
-                        this.UpdateUnits();
-                    }
-                    else {
-                        alert("Not enough Minerals!");
-                    }
-                }
-                break;
-        }
+        this.router.navigate(['/building-detail', building.Id]);
+        // switch (building.Id) {
+        //     case 1:
+        //         if (confirm("Spawn Drone for 100 Minerals?")) {
+        //             if (this.base.Minerals >= 100) {
+        //                 this.base.Minerals -= 100;
+        //                 this.units.push(new Drone(1));
+        //                 this.UpdateUnits();
+        //             }
+        //             else {
+        //                 alert("Not enough Minerals!");
+        //             }
+        //         }
+        //         break;
+        // }
     };
     BuildingsComponent.prototype.UpdateUnits = function () {
     };
@@ -87,7 +89,7 @@ BuildingsComponent = __decorate([
         providers: [buildings_service_1.BuildingsService, base_service_1.BaseService, units_service_1.UnitsService]
     }),
     __metadata("design:paramtypes", [buildings_service_1.BuildingsService, base_service_1.BaseService,
-        units_service_1.UnitsService])
+        units_service_1.UnitsService, router_1.Router])
 ], BuildingsComponent);
 exports.BuildingsComponent = BuildingsComponent;
 //# sourceMappingURL=buildings.component.js.map
