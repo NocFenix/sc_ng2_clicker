@@ -28,6 +28,9 @@ var ResourceService = (function () {
     ResourceService.prototype.GetLevel = function () {
         return Promise.resolve(mock_base_1.BASE.Level);
     };
+    ResourceService.prototype.GetGeyser = function (id) {
+        return this.GetVespeneGeysers().then(function (geyser) { return geyser.find(function (g) { return g.Id === id; }); });
+    };
     return ResourceService;
 }());
 ResourceService = __decorate([

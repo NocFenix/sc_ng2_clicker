@@ -4,6 +4,7 @@ import { BASE, MINERAL_FIELDS, VESPENE_GEYSERS } from './mock-base';
 
 @Injectable()
 export class ResourceService {
+
     GetMineralFields(): Promise<Mineral[]> {
         return Promise.resolve(MINERAL_FIELDS);
     }
@@ -14,13 +15,21 @@ export class ResourceService {
     GetMinerals(): Promise<number> {
         return Promise.resolve(BASE.Minerals);
     }
+
     GetVespene(): Promise<number> {
         return Promise.resolve(BASE.Vespene);
     }
+
     GetCredits(): Promise<number> {
         return Promise.resolve(BASE.Credits);
     }
+
     GetLevel(): Promise<number> {
         return Promise.resolve(BASE.Level);
     }
+
+    GetGeyser(id: number) : Promise<Vespene> {
+        return this.GetVespeneGeysers().then(geyser => geyser.find(g => g.Id === id));
+    }
+    
 }

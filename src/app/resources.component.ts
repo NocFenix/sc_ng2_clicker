@@ -5,6 +5,7 @@ import { UnitsService } from './units.service';
 import { ResourceService } from './resource.service';
 import { Mineral, Vespene } from './classes/resources';
 import { IUnit, Drone } from './classes/units';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'resources',
@@ -18,7 +19,7 @@ export class ResourceComponent implements OnInit {
   units: IUnit[];
 
   constructor(private resourceService: ResourceService, private baseService: BaseService,
-    private unitsService: UnitsService) { }
+    private unitsService: UnitsService, private router: Router) { }
 
   ngOnInit(): void {
     this.GetMineralFields();
@@ -64,6 +65,7 @@ export class ResourceComponent implements OnInit {
   }
 
   vespeneClick(geyser: Vespene) : void {
+    this.router.navigate(['/resource-detail', geyser.Id]);
     if (geyser.HasBuilding) {
       this.base.Vespene += 8;
     }
@@ -73,18 +75,18 @@ export class ResourceComponent implements OnInit {
   }
 
   vespeneRightClick(geyser: Vespene) {
-    if (!geyser.HasBuilding){
-      if (confirm("Build Extractor for 100 Minerals?")) {
-        if (this.base.Minerals >= 100) {
-          this.base.Minerals -= 100;
-          geyser.HasBuilding = true;
-          geyser.CssClass = "divExtractor";
-        }
-        else {
-          alert("Not enough Minerals!");
-        }
-      }
-    }
+    // if (!geyser.HasBuilding){
+    //   if (confirm("Build Extractor for 100 Minerals?")) {
+    //     if (this.base.Minerals >= 100) {
+    //       this.base.Minerals -= 100;
+    //       geyser.HasBuilding = true;
+    //       geyser.CssClass = "divExtractor";
+    //     }
+    //     else {
+    //       alert("Not enough Minerals!");
+    //     }
+    //   }
+    // }
     return false;
   }
   

@@ -44,9 +44,9 @@ exports.BUILDINGS = [
 ];
 exports.UNITS = [];
 exports.MINERAL_FIELDS = [
-    { Id: 1, Name: "Field_1" }
+    { Id: 1, Name: "Mineral Field" }
 ];
 exports.VESPENE_GEYSERS = [
-    { Id: 2, Name: "Geyser_1", HasBuilding: false, CssClass: "divVespeneGeyser" }
+    { Id: 2, Name: "Vespene Geyser", HasBuilding: false, CssClass: "divVespeneGeyser" }
 ];
 //# sourceMappingURL=mock-base.js.map

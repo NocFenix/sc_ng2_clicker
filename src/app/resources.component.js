@@ -12,11 +12,13 @@ var core_1 = require("@angular/core");
 var base_service_1 = require("./base.service");
 var units_service_1 = require("./units.service");
 var resource_service_1 = require("./resource.service");
+var router_1 = require("@angular/router");
 var ResourceComponent = (function () {
-    function ResourceComponent(resourceService, baseService, unitsService) {
+    function ResourceComponent(resourceService, baseService, unitsService, router) {
         this.resourceService = resourceService;
         this.baseService = baseService;
         this.unitsService = unitsService;
+        this.router = router;
     }
     ResourceComponent.prototype.ngOnInit = function () {
         this.GetMineralFields();
@@ -58,6 +60,7 @@ var ResourceComponent = (function () {
         }
     };
     ResourceComponent.prototype.vespeneClick = function (geyser) {
+        this.router.navigate(['/resource-detail', geyser.Id]);
         if (geyser.HasBuilding) {
             this.base.Vespene += 8;
         }
@@ -66,18 +69,18 @@ var ResourceComponent = (function () {
         }
     };
     ResourceComponent.prototype.vespeneRightClick = function (geyser) {
-        if (!geyser.HasBuilding) {
-            if (confirm("Build Extractor for 100 Minerals?")) {
-                if (this.base.Minerals >= 100) {
-                    this.base.Minerals -= 100;
-                    geyser.HasBuilding = true;
-                    geyser.CssClass = "divExtractor";
-                }
-                else {
-                    alert("Not enough Minerals!");
-                }
-            }
-        }
+        // if (!geyser.HasBuilding){
+        //   if (confirm("Build Extractor for 100 Minerals?")) {
+        //     if (this.base.Minerals >= 100) {
+        //       this.base.Minerals -= 100;
+        //       geyser.HasBuilding = true;
+        //       geyser.CssClass = "divExtractor";
+        //     }
+        //     else {
+        //       alert("Not enough Minerals!");
+        //     }
+        //   }
+        // }
         return false;
     };
     return ResourceComponent;
@@ -89,7 +92,7 @@ ResourceComponent = __decorate([
         providers: [resource_service_1.ResourceService, base_service_1.BaseService, units_service_1.UnitsService]
     }),
     __metadata("design:paramtypes", [resource_service_1.ResourceService, base_service_1.BaseService,
-        units_service_1.UnitsService])
+        units_service_1.UnitsService, router_1.Router])
 ], ResourceComponent);
 exports.ResourceComponent = ResourceComponent;
 //# sourceMappingURL=resources.component.js.map

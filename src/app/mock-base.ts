@@ -52,9 +52,9 @@ export const BUILDINGS: Building[] = [
 export const UNITS: IUnit[] = []
 
 export const MINERAL_FIELDS: Mineral[] = [
-    { Id: 1, Name: "Field_1"}
+    { Id: 1, Name: "Mineral Field"}
 ]
 
 export const VESPENE_GEYSERS: Vespene[] = [
-    { Id: 2, Name: "Geyser_1", HasBuilding: false, CssClass: "divVespeneGeyser" }
+    { Id: 2, Name: "Vespene Geyser", HasBuilding: false, CssClass: "divVespeneGeyser" }
 ]
