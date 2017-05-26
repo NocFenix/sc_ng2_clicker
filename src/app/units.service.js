@@ -13,6 +13,9 @@ var UnitsService = (function () {
     UnitsService.prototype.GetUnits = function () {
         return Promise.resolve(mock_base_1.UNITS);
     };
+    UnitsService.prototype.GetUnit = function (typeId, id) {
+        return this.GetUnits().then(function (units) { return units.filter(function (u) { return u.TypeId == typeId; }).find(function (u) { return u.Id == id; }); });
+    };
     return UnitsService;
 }());
 UnitsService = __decorate([

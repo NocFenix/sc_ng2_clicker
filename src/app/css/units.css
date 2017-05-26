@@ -13,3 +13,9 @@
     background-image: url('../img/drone.png');
     background-size: contain;
 }
+
+.divOverlord {
+  width: 100px;
+  height: 100px;
+  background-color: #880080;
+}

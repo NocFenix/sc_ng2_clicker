@@ -45,18 +45,8 @@ export class ResourceComponent implements OnInit {
   }
 
   mineralClick() : void {
-    if(this.units.length > 0){
-      var droneCount = 0;
-      for (var i = 0; i < this.units.length; i++) {
-        if (this.units[i].TypeId == 1 && this.units[i].GatherResource == 1) {
-          droneCount++;
-        }
-      }
-
-      if (droneCount == 0){
-        droneCount = 1;
-      }
-
+    var droneCount = this.units.filter(d => d.TypeId == 1 && d.GatherResource == 1).length;
+    if (droneCount > 0) {
       this.base.Minerals += droneCount * 8;
     }
     else {
@@ -67,7 +57,13 @@ export class ResourceComponent implements OnInit {
   vespeneClick(geyser: Vespene) : void {
     this.router.navigate(['/resource-detail', geyser.Id]);
     if (geyser.HasBuilding) {
-      this.base.Vespene += 8;
+      var droneCount = this.units.filter(d => d.TypeId == 1 && d.GatherResource == 2).length;
+      if (droneCount > 0){
+        this.base.Vespene += droneCount * 8;
+      }
+      else {
+        this.base.Vespene++;
+      }
     }
     else {
       this.base.Vespene++;

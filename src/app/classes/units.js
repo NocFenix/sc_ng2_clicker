@@ -10,4 +10,14 @@ var Drone = (function () {
     return Drone;
 }());
 exports.Drone = Drone;
+var Overlord = (function () {
+    function Overlord(id) {
+        this.Id = id;
+        this.TypeId = 2;
+        this.Name = "Overlord";
+        this.CssClass = "divOverlord";
+    }
+    return Overlord;
+}());
+exports.Overlord = Overlord;
 //# sourceMappingURL=units.js.map
