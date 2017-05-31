@@ -39,43 +39,10 @@ var BuildingsComponent = (function () {
     };
     BuildingsComponent.prototype.BuildingClick = function (building) {
         this.router.navigate(['/building-detail', building.Id]);
-        // switch (building.Id) {
-        //     case 1:
-        //         if (confirm("Spawn Drone for 100 Minerals?")) {
-        //             if (this.base.Minerals >= 100) {
-        //                 this.base.Minerals -= 100;
-        //                 this.units.push(new Drone(1));
-        //                 this.UpdateUnits();
-        //             }
-        //             else {
-        //                 alert("Not enough Minerals!");
-        //             }
-        //         }
-        //         break;
-        // }
-    };
-    BuildingsComponent.prototype.UpdateUnits = function () {
     };
     BuildingsComponent.prototype.BuildingContextClick = function (building) {
         switch (building.Id) {
             case 1:
-                // var hasSpawningPool = false;
-                // for(var i = 0; i < this.buildings.length; i++){
-                //     if (this.buildings[i].Id == 7) {
-                //         hasSpawningPool = true;
-                //         break;
-                //     }
-                // }
-                // if (confirm("Spawn Drone for 100 Minerals?")){
-                //     if (this.base.Minerals >= 100) {
-                //         this.base.Minerals -= 100;
-                //         this.units.push(new Unit(1, "Drone", "divDrone"));
-                //         this.UpdateUnits();
-                //     }
-                //     else {
-                //         alert("Not enough Minerals!");
-                //     }
-                // }
                 break;
         }
         return false;

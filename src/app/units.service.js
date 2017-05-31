@@ -16,6 +16,14 @@ var UnitsService = (function () {
     UnitsService.prototype.GetUnit = function (typeId, id) {
         return this.GetUnits().then(function (units) { return units.filter(function (u) { return u.TypeId == typeId; }).find(function (u) { return u.Id == id; }); });
     };
+    UnitsService.prototype.GetUnitActions = function (typeId) {
+        switch (typeId) {
+            case 1:
+                return Promise.resolve(mock_base_1.DRONEActions);
+            default:
+                return null;
+        }
+    };
     return UnitsService;
 }());
 UnitsService = __decorate([

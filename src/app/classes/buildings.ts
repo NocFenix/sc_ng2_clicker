@@ -15,6 +15,7 @@ export class Building {
 export class BuildingAction {
     Name: string;
     Description: string;
-    Cost: string;
+    MineralCost: number;
+    VespeneCost: number;
     ClickEvent: string;
 }

@@ -5,7 +5,7 @@
         <h3 class="actionTitle">
             {{action.Name}} <button (click)="ActionClick(action)" class="button">Confirm</button>
         </h3>
-        Cost: {{action.Cost}}
+        Cost: <span *ngIf="action.MineralCost > 0">{{action.MineralCost}} Minerals</span> <span *ngIf="action.VespeneCost > 0">{{action.VespeneCost}} Vespene</span>
         <div [innerHtml]="action.Description"></div>
     </div>
 </div>

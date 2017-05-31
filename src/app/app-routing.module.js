@@ -9,10 +9,12 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var building_detail_component_1 = require("./building-detail.component");
 var resource_detail_component_1 = require("./resource-detail.component");
+var unit_details_component_1 = require("./unit-details.component");
 var routes = [
     { path: '', redirectTo: '/', pathMatch: 'full' },
     { path: 'building-detail/:id', component: building_detail_component_1.BuildingDetailComponent },
     { path: 'resource-detail/:id', component: resource_detail_component_1.ResourceDetailComponent },
+    { path: 'unit-details/:typeId/:id', component: unit_details_component_1.UnitDetailComponent },
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

@@ -16,6 +16,7 @@
 
 .divOverlord {
   width: 100px;
-  height: 100px;
-  background-color: #880080;
+  height: 132px;
+  background-image: url('../img/overlord.png');
+  background-size: contain;
 }

@@ -1,0 +1,13 @@
+<div *ngIf="unit" class="divBuildingDetail">
+    <h1>{{unit.Name}} <button (click)="close();" class="buttonClose">Hide</button></h1>
+    <span [innerHtml]="unit.Description"></span>
+    <div *ngFor="let action of unit.Actions" class="divBuildingActions">
+        <h3 class="actionTitle">
+            {{action.Name}} <button (click)="ActionClick(action)" class="button">{{action.ButtonLabel}}</button>
+        </h3>
+        <div *ngIf="action.MineralCost + action.VespeneCost > 0">
+            Cost: <span *ngIf="action.MineralCost > 0">{{action.MineralCost}} Minerals</span> <span *ngIf="action.VespeneCost > 0">{{action.VespeneCost}} Vespene</span>
+        </div>
+        <div [innerHtml]="action.Description"></div>
+    </div>
+</div>

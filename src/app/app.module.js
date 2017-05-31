@@ -15,6 +15,7 @@ var resource_detail_component_1 = require("./resource-detail.component");
 var buildings_component_1 = require("./buildings.component");
 var building_detail_component_1 = require("./building-detail.component");
 var units_component_1 = require("./units.component");
+var unit_details_component_1 = require("./unit-details.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +25,7 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, app_routing_module_1.AppRoutingModule],
         declarations: [app_component_1.AppComponent, navbar_component_1.NavBarComponent, resources_component_1.ResourceComponent, buildings_component_1.BuildingsComponent,
-            units_component_1.UnitsComponent, building_detail_component_1.BuildingDetailComponent, resource_detail_component_1.ResourceDetailComponent],
+            units_component_1.UnitsComponent, building_detail_component_1.BuildingDetailComponent, resource_detail_component_1.ResourceDetailComponent, unit_details_component_1.UnitDetailComponent],
         bootstrap: [app_component_1.AppComponent],
     })
 ], AppModule);

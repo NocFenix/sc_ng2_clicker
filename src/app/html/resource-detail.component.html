@@ -1,9 +1,10 @@
 <div *ngIf="geyser" class="divBuildingDetail">
-    <h1>{{geyser.Name}} <button (click)="close();" class="buttonClose">Hide</button></h1>
-    <div *ngIf="!geyser.HasBuilding" class="divBuildingActions">
+    <h1>{{geyser.Name}} <span *ngIf="geyser.BuildingLevel > 0">Level {{geyser.BuildingLevel}} </span><button (click)="close();" class="buttonClose">Hide</button></h1>
+    <div *ngFor="let action of geyser.Actions" class="divBuildingActions">
         <h3 class="actionTitle">
-            Build Extractor <button (click)="ActionClick(geysyer)" class="button">Confirm</button>
+            {{action.Name}} <button (click)="ActionClick(action)" class="button">Confirm</button>
         </h3>
-        Cost: 100 Minerals
+        Cost: <span *ngIf="action.MineralCost > 0">{{action.MineralCost}} Minerals</span> <span *ngIf="action.VespeneCost > 0">{{action.VespeneCost}} Vespene</span>
+        <div [innerHtml]="action.Description"></div>
     </div>
 </div>

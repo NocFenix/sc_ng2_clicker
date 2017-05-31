@@ -8,4 +8,14 @@ export class Vespene {
     Name: string;
     HasBuilding: boolean;
     CssClass: string;
+    BuildingLevel: number;
+    Actions: ResourceAction[];
+}
+
+export class ResourceAction {
+    Name: string;
+    Description: string;
+    MineralCost: number;
+    VespeneCost: number;
+    ClickEvent: string;
 }

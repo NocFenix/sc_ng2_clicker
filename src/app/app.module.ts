@@ -9,11 +9,12 @@ import { ResourceDetailComponent } from './resource-detail.component'
 import { BuildingsComponent } from './buildings.component';
 import { BuildingDetailComponent } from './building-detail.component'
 import { UnitsComponent } from './units.component';
+import { UnitDetailComponent } from './unit-details.component';
 
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule ],
   declarations: [ AppComponent, NavBarComponent, ResourceComponent, BuildingsComponent,
-    UnitsComponent, BuildingDetailComponent, ResourceDetailComponent ],
+    UnitsComponent, BuildingDetailComponent, ResourceDetailComponent, UnitDetailComponent ],
   bootstrap:    [ AppComponent ],
 })
 export class AppModule { }

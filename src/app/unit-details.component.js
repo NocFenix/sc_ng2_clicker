@@ -14,42 +14,88 @@ var units_service_1 = require("./units.service");
 var resource_service_1 = require("./resource.service");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
+var router_2 = require("@angular/router");
 require("rxjs/add/operator/switchMap");
-var ResourceDetailComponent = (function () {
-    function ResourceDetailComponent(resourcesService, baseService, unitsService, route, location) {
+var UnitDetailComponent = (function () {
+    function UnitDetailComponent(resourcesService, baseService, unitsService, route, location, router) {
         this.resourcesService = resourcesService;
         this.baseService = baseService;
         this.unitsService = unitsService;
         this.route = route;
         this.location = location;
+        this.router = router;
     }
-    ResourceDetailComponent.prototype.ngOnInit = function () {
+    UnitDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params
             .switchMap(function (params) { return _this.unitsService.GetUnit(+params['typeId'], +params['id']); })
             .subscribe(function (u) { return _this.unit = u; });
         this.GetBase();
     };
-    ResourceDetailComponent.prototype.GetBase = function () {
+    UnitDetailComponent.prototype.GetBase = function () {
         var _this = this;
         this.baseService.GetBase().then(function (base) { return _this.base = base; });
     };
-    ResourceDetailComponent.prototype.close = function () {
-        this.location.back();
+    UnitDetailComponent.prototype.close = function () {
+        this.router.navigate(['/']);
+        //this.location.back();
     };
-    ResourceDetailComponent.prototype.ActionClick = function () {
+    UnitDetailComponent.prototype.ActionClick = function (action) {
+        switch (action.ClickEvent) {
+            case "GatherMinerals":
+                if (action.ButtonLabel == "Gather") {
+                    action.ButtonLabel = "Stop";
+                    // make sure drone doesn't keep getting vespene
+                    var otherAction = this.unit.Actions[1];
+                    clearInterval(this.mineralInterval);
+                    clearInterval(this.vespeneInterval);
+                    otherAction.ButtonLabel = "Gather";
+                    // start gathering minerals
+                    this.mineralInterval = setInterval(this.GatherMinerals.bind(this), 1000);
+                }
+                else {
+                    clearInterval(this.mineralInterval);
+                    clearInterval(this.vespeneInterval);
+                    action.ButtonLabel = "Gather";
+                }
+                break;
+            case "GatherVespene":
+                if (action.ButtonLabel == "Gather") {
+                    action.ButtonLabel = "Stop";
+                    // make sure drone doesn't keep getting minerals
+                    var otherAction = this.unit.Actions[0];
+                    clearInterval(this.vespeneInterval);
+                    clearInterval(this.mineralInterval);
+                    otherAction.ButtonLabel = "Gather";
+                    // start gathering vespene
+                    this.vespeneInterval = setInterval(this.GatherVespene.bind(this), 1000);
+                }
+                else {
+                    clearInterval(this.mineralInterval);
+                    clearInterval(this.vespeneInterval);
+                    action.ButtonLabel = "Gather";
+                }
+                break;
+        }
         return false;
     };
-    return ResourceDetailComponent;
+    UnitDetailComponent.prototype.GatherMinerals = function () {
+        this.base.Minerals++;
+    };
+    UnitDetailComponent.prototype.GatherVespene = function () {
+        this.base.Vespene++;
+    };
+    return UnitDetailComponent;
 }());
-ResourceDetailComponent = __decorate([
+UnitDetailComponent = __decorate([
     core_1.Component({
         selector: 'unit-details',
         templateUrl: './html/unit-details.component.html',
         providers: [resource_service_1.ResourceService, base_service_1.BaseService, units_service_1.UnitsService]
     }),
     __metadata("design:paramtypes", [resource_service_1.ResourceService, base_service_1.BaseService,
-        units_service_1.UnitsService, router_1.ActivatedRoute, common_1.Location])
-], ResourceDetailComponent);
-exports.ResourceDetailComponent = ResourceDetailComponent;
+        units_service_1.UnitsService, router_1.ActivatedRoute, common_1.Location,
+        router_2.Router])
+], UnitDetailComponent);
+exports.UnitDetailComponent = UnitDetailComponent;
 //# sourceMappingURL=unit-details.component.js.map

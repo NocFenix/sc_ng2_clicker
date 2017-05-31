@@ -11,4 +11,10 @@ var Vespene = (function () {
     return Vespene;
 }());
 exports.Vespene = Vespene;
+var ResourceAction = (function () {
+    function ResourceAction() {
+    }
+    return ResourceAction;
+}());
+exports.ResourceAction = ResourceAction;
 //# sourceMappingURL=resources.js.map
